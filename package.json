@@ -1,0 +1,26 @@
+{
+  "name": "sri-vuejs",
+  "version": "0.0.0",
+  "description": "vuejs study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipadorusa/sri-vuejs.git"
+  },
+  "keywords": [
+    "sri-vuejs-study"
+  ],
+  "author": "ipadorusa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ipadorusa/sri-vuejs/issues"
+  },
+  "homepage": "https://github.com/ipadorusa/sri-vuejs#readme",
+  "dependencies": {
+    "webpack": "^3.4.1"
+  },
+  "devDependencies": {}
+}
