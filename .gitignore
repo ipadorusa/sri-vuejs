@@ -127,3 +127,5 @@ modules.xml
 .idea/encodings.xml
 .idea/inspectionProfiles/
 /.idea/vcs.xml
+
+/.vscode/*
