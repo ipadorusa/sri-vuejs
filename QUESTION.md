@@ -1,5 +1,5 @@
 # 공부하기전 궁금했던것들
-## Grunt or Gulp vs Webpack 의 차이
+### Grunt or Gulp vs Webpack 의 차이
  - grunt or gulp vs webpack , task runner vs module bundler 차이
  - 궁금한점 어떻게 보면 grunt나, gulp에서 하는것들이 webpack에서도 이루어질수 있는데
     왜??? 그렇다면 module bundler 라고 안했을텐데..모듈이라는말에 집중해야하나?
@@ -35,6 +35,7 @@
       그래서인지 모던 브라우저에서는 이런 Data URL을 통해서도 그런 오버헤드를 줄일 수 있겠죠.
     - 등등이 많은데 이는 Task runner에서는 지원하지 않죠, 오로지 모듈들을 번들링하는 데 최적화 된 모듈 번들러에서만 지원하는 기능이죠. Task runner는 모듈들 사이의 관계를 모르니   이러한 행위를 할 수가 없죠.
 
-## Webpack
+### Webpack
 - What is webpack???  웹팩?? 위에도 설명이 되어 있는데?? 구지 왜????
-
+### Web Components Spec
+- <https://www.w3.org/wiki/WebComponents/>
