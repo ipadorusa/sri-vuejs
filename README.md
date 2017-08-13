@@ -2,7 +2,7 @@
 
 ## 준비물
  - Node.js 설치
- - NPM
+ - ~~NPM~~ YARN
  - Webpack or Webpack2 ?
 
 ### Javascript
