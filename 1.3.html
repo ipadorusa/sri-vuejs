@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" placeholder="할일!" v-model="inputTodo" v-on:keyup.enter="log">
+        <!--v-on:keyup -->
+        <button v-on:click='addTodo'>추가</button>
+        <ul>
+            <li v-for="todo in todos">
+                {{ todo }}
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                todos: [
+                    '빨래하기',
+                    '밥먹기',
+                    '청소하기'
+                ],
+                inputTodo: ''
+            },
+            methods: {
+                addTodo: function() {
+                    this.todos.push(this.inputTodo);
+                },
+                log: function() {
+                    console.log(this.inputTodo);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
