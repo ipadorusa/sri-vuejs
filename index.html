@@ -10,7 +10,7 @@
         <input type="text" placeholder="할 일!" v-model="inputTodo" v-on:keyup.enter="addTodo">
         <button v-on:click="addTodo">추가</button>
         <ul>
-            <li v-for="todo in todos">
+            <li v-for="(todo, index) in todos" v-on:click="removeTodo(index)">
                 {{ todo }}
             </li>
         </ul>
@@ -32,6 +32,9 @@
                 addTodo: function() {
                     this.todos.push(this.inputTodo);
                     this.inputTodo = '';
+                },
+                removeTodo: function(index) {
+                    this.todos.splice(index, 1);
                 }
             }
         });
