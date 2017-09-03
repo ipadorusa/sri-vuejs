@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ message | truncate(10) }}
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'hellow,Vue.js'
+            },
+            filters: {
+                truncate: function(value, length) {
+                    if (!value) return '';
+                    return value.substring(0, length);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

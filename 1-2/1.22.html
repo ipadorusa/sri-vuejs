@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="box">
+            @mousedown.left="alertMessage('left')" @mousedown.middle="alertMessage('middle')" @mousedown.right="alertMessage('right')"
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            methods: {
+                alertMessage: function(message) {
+                    alert(message);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

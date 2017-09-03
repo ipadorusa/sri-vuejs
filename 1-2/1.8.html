@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ object.key }} {{ object.array }} {{ object.message }}
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                object: {
+                    key: 'key',
+                    childObject: {
+                        array: ['a', 'b', 'c'],
+                        message: 'Hello World'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

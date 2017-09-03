@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-html="dom"></div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                dom: '<strong>힘세고 강한 아침!</strong>'
+            }
+        })
+    </script>
+</body>
+
+</html>

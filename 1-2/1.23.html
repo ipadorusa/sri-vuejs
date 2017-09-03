@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <button onclick="removeInstace()">alert</button>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hellow World'
+            },
+            beforeCreate: function() {
+                alert('beforeCreate: ' + this.message);
+            },
+            created: function() {
+                alert('created: ' + this.message)
+            },
+            beforeMount: function() {
+                alert('beforeMount ' + this.message);
+            },
+            mounted: function() {
+                alert('mounted ' + this.message);
+            },
+            beforeDestory: function() {
+                alert('beforeDestory ' + this.message);
+            },
+            destroyed: function() {
+                alert('destroyed ' + this.message);
+            }
+        });
+
+        function removeInstace() {
+            alert(vm.message);
+            vm.$destroy();
+            console.log(vm.message);
+        }
+    </script>
+</body>
+
+</html>

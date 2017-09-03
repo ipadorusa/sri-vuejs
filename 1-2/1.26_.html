@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="alertNow">현재시각은?</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            methods: {
+                alertNow: function() {
+                    alert(this.now);
+                },
+                now: function() {
+                    return Date.now();
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        <a v-bind:href="link" target="_blank">네이버로</a>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                link: 'https://www.naver.com'
+            }
+        })
+    </script>
+</body>
+
+</html>

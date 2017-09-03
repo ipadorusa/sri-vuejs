@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            data: {
+                message: '헬로우 뷰제이에스'
+            }
+        }).$mount('#app');
+    </script>
+</body>
+
+</html>

@@ -1,3 +1,7 @@
+---
+typora-root-url: ./asset
+---
+
 # SRI - UI개발팀 VUEJS 스터디 준비 [![Version](https://img.shields.io/badge/sri--ipadorsua-0.0.0-brightgreen.svg)]()
 
 ## 준비물
@@ -24,3 +28,7 @@
  - v-pre
  - v-cloak
  - v-one
+
+## VUE CLI 설치 옵션
+
+![caputer01](/caputer01.png)

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-once>{{ message }}</div>
+        <button v-on:click="change">바뀌어라 얍!</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: '난변하지 않아'
+            },
+            methods: {
+                change: function() {
+                    this.isActive = !this.isActive;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

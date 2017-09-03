@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="text"></div>
+    <button id="reverse">뒤집기</button>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        window.onload = function() {
+            var text = document.getElementById('text');
+            text.textContent = 'Hello,World!';
+
+            var button = document.getELementById('reverse');
+            button.onclick = function() {
+                var content = text.textContent;
+                text.textContent = content
+                    .split('')
+                    .reverse()
+                    .join('');
+            };
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ message | capitalize}}
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'hellow,Vue.js'
+            },
+            filters: {
+                capitalize: function(value) {
+                    if (!value) return '';
+                    value = value.toString();
+                    return value.charAt(0).toUpperCase() + value.slice(1);
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

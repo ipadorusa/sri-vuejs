@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{ text }}</div>
+        <div>{{ reverseText }}</div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                text: 'Hello,World'
+            },
+            computed: {
+                reverseText: function() {
+                    return this.text
+                        .split('')
+                        .reverse()
+                        .join('');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
