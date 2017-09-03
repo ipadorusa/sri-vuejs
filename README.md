@@ -1,8 +1,4 @@
----
-typora-root-url: ./asset
----
-
-# SRI - UI개발팀 VUEJS 스터디 준비 [![Version](https://img.shields.io/badge/sri--ipadorsua-0.0.0-brightgreen.svg)]()
+# VUEJS 스터디 [![Version](https://img.shields.io/badge/ipadorsua-0.0.0-brightgreen.svg)]()
 
 ## 준비물
  - Node.js 설치
@@ -31,4 +27,4 @@ typora-root-url: ./asset
 
 ## VUE CLI 설치 옵션
 
-![caputer01](/caputer01.png)
+[caputer01](./asset/caputer01.png)
