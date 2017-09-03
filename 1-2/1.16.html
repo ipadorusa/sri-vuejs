@@ -7,16 +7,16 @@
 
 <body>
     <div id="app">
-        <button v-on:click="alertMessage('누르면터진다')">누르면터짐</button>
+        {{ message.split('').reverse().join('') }}<br/>
+        <a :href="isNaver === true ? 'https://www.naver.com' : 'https://www.daum.net' ">링크</a><br />
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                alertMessage: function(message) {
-                    alert(message);
-                }
+                message: 'Hello, Vue.js!',
+                isNaver: false
             }
         });
     </script>

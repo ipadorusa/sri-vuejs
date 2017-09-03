@@ -7,19 +7,50 @@
 
 <body>
     <div id="app">
-        {{ message | truncate(10) }}
+        <button @click="alertCounter">측정</button>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                message: 'hellow,Vue.js'
+                counter: 0
             },
-            filters: {
-                truncate: function(value, length) {
-                    if (!value) return '';
-                    return value.substring(0, length);
+            methods: {
+                alertCounter: function() {
+                    var t0 = performance.now();
+                    this.counterMethod();
+                    var t1 = performance.now();
+                    console.log('counterMethod:' + (t1 - t0) + 'ms')
+
+                    t0 = performance.now();
+                    this.counterMethod();
+                    t1 = performance.now();
+                    console.log('counterMethod:' + (t1 - t0) + 'ms')
+
+                    t0 = performance.now();
+                    this.computedCounter;
+                    t1 = performance.now();
+                    console.log('computedCounter:' + (t1 - t0) + 'ms')
+
+                    t0 = performance.now();
+                    this.computedCounter;
+                    t1 = performance.now();
+                    console.log('computedCounter:' + (t1 - t0) + 'ms')
+                },
+                counterMethod: function() {
+                    for (var i= 0; i <= 10000000; i += 1) {
+                        this.counter += 1;
+                    }
+                    return this.counter;
+                }
+            },
+            computed: {
+                computedCounter: function() {
+                    for (var i = 0; i <= 10000000; i += 1) {
+                        this.counter += 1;
+                    }
+                    return this.counter;
                 }
             }
         })

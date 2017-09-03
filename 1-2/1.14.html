@@ -3,22 +3,32 @@
 
 <head>
     <title>Vue.js Example</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-        {{ message.split('').reverse().join('') }}<br/>
-        <a :href="isNaver === true ? 'https://www.naver.com' : 'https://www.daum.net' ">링크</a><br />
+        <div :class="{ active: isActive}">{{ message }}</div>
+        <button v-on:click="toggle">toggle</button>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                message: 'Hello, Vue.js!',
-                isNaver: false
+                message: '나는 Div!',
+                isActive: false
+            },
+            methods: {
+                toggle: function() {
+                    this.isActive = !this.isActive;
+                }
             }
-        });
+        })
     </script>
 </body>
 

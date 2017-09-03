@@ -7,9 +7,10 @@
 
 <body>
     <div id="app">
-        {{ text }}
+        <div>{{ text }}</div>
+        <button v-on:click="reverse">뒤집기</button>
     </div>
-    <button v-on:click="reverse">뒤집기</button>
+    
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
@@ -19,7 +20,7 @@
             },
             methods: {
                 reverse: function() {
-                    this.text = this.text.split('').reverse().join('')
+                    this.text = this.text.split('').reverse().join('');
                 }
             }
         })

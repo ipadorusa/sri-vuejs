@@ -3,37 +3,16 @@
 
 <head>
     <title>Vue.js Example</title>
-    <style>
-        #box1 {
-            background: black;
-            width: 200px;
-            height: 200px;
-        }
-        
-        #box2 {
-            width: 50px;
-            height: 50px;
-            background-color: red;
-        }
-    </style>
 </head>
 
 <body>
     <div id="app">
-        <div id="box1" @click="alertMessage('box1')">
-            <div id="box2" @click="alertMessage('box2')"></div>
-        </div>
-
+        <button v-on:click="alertMessage('누르면터진다')">누르면터짐</button>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
-            el: '#app',
-            methods: {
-                alertMessage: function(messsage) {
-                    alert(messsage);
-                }
-            }
+            el: '#app'
         });
     </script>
 </body>

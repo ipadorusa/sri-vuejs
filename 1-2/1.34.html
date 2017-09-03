@@ -7,19 +7,21 @@
 
 <body>
     <div id="app">
-        <div v-once>{{ message }}</div>
-        <button v-on:click="change">바뀌어라 얍!</button>
+        {{ message | capitalize}}
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                message: '난변하지 않아'
+                message: 'hellow,Vue.js'
             },
-            methods: {
-                change: function() {
-                    this.message = '변하지 않는 내 마음';
+            filters: {
+                capitalize: function(value) {
+                    if (!value) return '';
+                    value = value.toString();
+                    return value.charAt(0).toUpperCase() + value.slice(1);
+
                 }
             }
         })

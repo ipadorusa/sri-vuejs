@@ -1,31 +1,29 @@
 <!doctype html>
 <html>
-
 <head>
     <title>Vue.js Example</title>
+    <style>
+        #box{
+            width:200px;height:200px;background-color:black;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-        <div>{{ text }}</div>
-        <div>{{ reverseText }}</div>
+        <div id="box" @mousedown.left="alertMessage('left')" @mousedown.middle="alertMessage('middle')" @mousedown.right="alertMessage('right')">
+        </div>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
-            data: {
-                text: 'Hello,World'
-            },
-            computed: {
-                reverseText: function() {
-                    return this.text
-                        .split('')
-                        .reverse()
-                        .join('');
+            methods: {
+                alertMessage: function (message) {
+                    alert(message);
                 }
             }
-        })
+        });
     </script>
 </body>
 

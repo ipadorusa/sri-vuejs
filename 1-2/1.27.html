@@ -7,56 +7,22 @@
 
 <body>
     <div id="app">
-        <button @click="alertCount">측정</button>
+        <button @click="alertNow">현재시각은?</button>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
-            data: {
-                counter: 0
-            },
             methods: {
-                alertCounter: function() {
-                    var t0 = performance.now();
-                    this.counterMethod();
-                    var t1 = performance.now();
-                    console.log('counterMethod:' + (t1 - t0) + 'ms')
-
-                    t0 = performance.now();
-                    this.counterMethod();
-                    t1 = performance.now();
-                    console.log('counterMethod:' + (t1 - t0) + 'ms')
-
-                    t0 = performance.now();
-                    this.computedCounter();
-                    t1 = performance.now();
-                    console.log('computedCounter:' + (t1 - t0) + 'ms')
-
-                    t0 = performance.now();
-                    this.computedCounter();
-                    t1 = performance.now();
-                    console.log('computedCounter:' + (t1 - t0) + 'ms')
-
-                },
-                counterMethod: function() {
-                    for (var = i = 0; i <= 10000000; i += 1) {
-                        this.counter += 1;
-                    }
-                    return this.counter;
+                alertNow: function() {
+                    alert(this.now);
                 }
-
             },
             computed: {
-                computedCounter: function() {
-                    for (var i = 0; i <= 1000000; i++) {
-                        this.counter += 1;
-                    }
+                now: function() {
+                    return Date.now();
                 }
-                return this.counter;
             }
-
-
         })
     </script>
 </body>

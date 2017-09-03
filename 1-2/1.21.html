@@ -3,20 +3,35 @@
 
 <head>
     <title>Vue.js Example</title>
+    <style>
+        #box1 {
+            background: black;
+            width: 200px;
+            height: 200px;
+        }
+        
+        #box2 {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-        <!-- <input type="text" @keyup.enter="save"> -->
-        <input type="text" @keyup.shift.enter="save">
+        <div id="box1" @click="alertMessage('box1')">
+            <div id="box2" @click="alertMessage('box2')"></div>
+        </div>
+
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
             methods: {
-                save: function() {
-                    confirm('저장하시겠습니까?');
+                alertMessage: function(messsage) {
+                    alert(messsage);
                 }
             }
         });

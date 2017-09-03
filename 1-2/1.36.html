@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="inputTodo" placeholder="입력하세요">
+        <button @click="addTodo">추가하자</button>
+        <ul>
+            <li v-for="todo in todos">
+                {{ todo }}
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                todos: [
+                    '설거지하기',
+                    '빨래하기',
+                    '요리하기'
+                ],
+                inputTodo: ''
+            },
+            methods: {
+                addTodo: function() {
+                    this.todos.push(this.inputTodo);
+                    this.inputTodo = '';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

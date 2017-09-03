@@ -7,20 +7,33 @@
 
 <body>
     <div id="app">
-        {{ object.key }} {{ object.array }} {{ object.message }}
+        {{ string }}<br>
+        {{ numberInterger }}<br>
+        {{ numberDouble }}<br>
+        {{ boolean }}<br>
+        {{ array }}<br>
+        {{ func }}<br>
+        {{ func() }}<br>
+        {{ object }}<br>
+        {{ null }}<br>
+        {{ undefined }}<br>        
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                object: {
-                    key: 'key',
-                    childObject: {
-                        array: ['a', 'b', 'c'],
-                        message: 'Hello World'
-                    }
-                }
+                string: 'String',
+                numberInterger: 19940126,
+                numberDouble: 3.14,
+                boolean: true,
+                array : ['a', 'b', 'c'],
+                func: function () {
+                    return 'test'
+                },
+                object: new Date(),
+                null: null,
+                undefined: undefined
             }
         })
     </script>

@@ -7,21 +7,18 @@
 
 <body>
     <div id="app">
-        {{ message | capitalize}}
+        <button @click="alertNow">현재시각은?</button>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
-            data: {
-                message: 'hellow,Vue.js'
-            },
-            filters: {
-                capitalize: function(value) {
-                    if (!value) return '';
-                    value = value.toString();
-                    return value.charAt(0).toUpperCase() + value.slice(1);
-
+            methods: {
+                alertNow: function() {
+                    alert(this.now);
+                },
+                now: function() {
+                    return Date.now();
                 }
             }
         })

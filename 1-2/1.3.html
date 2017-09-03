@@ -6,21 +6,25 @@
 </head>
 
 <body>
-    <div id="instance-1">{{ message }}</div>
-    <div id="instance-2">{{ message }}</div>
+    <div id="instance-1">
+        {{ message }}
+    </div>
+    <div id="instance-2">
+        {{ message }}
+    </div>
 
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#instance-1',
             data: {
-                message: 'instance-1'
+                message: 'I\'m instance-1'
             }
         });
         new Vue({
             el: '#instance-2',
             data: {
-                message: 'instance-2'
+                message: 'I\'m instance-2'
             }
         });
     </script>

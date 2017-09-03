@@ -7,18 +7,19 @@
 
 <body>
     <div id="app">
-        <button @click="alertNow">현재시각은?</button>
+        {{ message | truncate(10) }}
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
-            methods: {
-                alertNow: function() {
-                    alert(this.now);
-                },
-                now: function() {
-                    return Date.now();
+            data: {
+                message: 'hellow,Vue.js'
+            },
+            filters: {
+                truncate: function(value, length) {
+                    if (!value) return '';
+                    return value.substring(0, length);
                 }
             }
         })

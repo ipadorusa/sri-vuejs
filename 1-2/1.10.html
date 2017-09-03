@@ -7,14 +7,14 @@
 
 <body>
     <div id="app">
-        <a v-bind:href="link" target="_blank">네이버로</a>
+        <div v-text="message"></div>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                link: 'https://www.naver.com'
+                message: 'Hello, Vue.js'
             }
         })
     </script>

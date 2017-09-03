@@ -7,23 +7,42 @@
 
 <body>
     <div id="app">
-        <button @click="alertNow">현재시각은?</button>
+        {{ message }}
     </div>
+    <button onclick="removeInstace()">alert</button>
+
     <script src="https://unpkg.com/vue"></script>
     <script>
-        new Vue({
+        var vm = new Vue({
             el: '#app',
-            methods: {
-                alertNow: function() {
-                    alert(this.now);
-                }
+            data: {
+                message: 'Hellow World'
             },
-            computed: {
-                now: function() {
-                    return Date.now();
-                }
+            beforeCreate: function() {
+                alert('beforeCreate: ' + this.message);
+            },
+            created: function() {
+                alert('created: ' + this.message)
+            },
+            beforeMount: function() {
+                alert('beforeMount ' + this.message);
+            },
+            mounted: function() {
+                alert('mounted ' + this.message);
+            },
+            beforeDestory: function() {
+                alert('beforeDestory ' + this.message);
+            },
+            destroyed: function() {
+                alert('destroyed ' + this.message);
             }
-        })
+        });
+
+        function removeInstace() {
+            alert(vm.message);
+            vm.$destroy();
+            console.log(vm.message);
+        }
     </script>
 </body>
 

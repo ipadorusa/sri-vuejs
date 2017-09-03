@@ -15,13 +15,13 @@
             var text = document.getElementById('text');
             text.textContent = 'Hello,World!';
 
-            var button = document.getELementById('reverse');
+            var button = document.getElementById('reverse');
             button.onclick = function() {
                 var content = text.textContent;
                 text.textContent = content
-                    .split('')
-                    .reverse()
-                    .join('');
+                                    .split('')
+                                    .reverse()
+                                    .join('');
             };
         }
     </script>

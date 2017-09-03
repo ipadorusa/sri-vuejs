@@ -3,32 +3,19 @@
 
 <head>
     <title>Vue.js Example</title>
-    <style>
-        #box {
-            background: black;
-            width: 200px;
-            height: 200px;
-        }
-    </style>
 </head>
 
 <body>
     <div id="app">
-        <div id="box" v-on:mousemove="getPosition"></div>
-        x: {{ x }}<br /> y: {{ y }}
+        <button v-on:click="alertMessage('누르면터진다')">누르면터짐</button>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                x: 0,
-                y: 0
-            },
-            methods: {
-                getPosition: function(event) {
-                    this.x = event.clientX;
-                    this.y = event.clientY;
+                alertMessage: function(message) {
+                    alert(message);
                 }
             }
         });
