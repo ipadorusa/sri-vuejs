@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+        
+        #box.clicked {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="box" :class="{ clicked: isClicked}" @click="boxClick"></div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isClicked: false
+            },
+            methods: {
+                boxClick: function() {
+                    this.isClicked = true
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

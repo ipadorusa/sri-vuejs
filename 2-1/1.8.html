@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+</head>
+
+<body>
+    <div id="app">
+        <template v-if="isHidden">
+            <h1>자 이렇게!</h1>
+            <div>template을 사용하면</div>
+            <p>여러 개의 돔을</p>
+            <span>사용할 수 있어요!</span>
+        </template>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isHidden: true
+            }
+        })
+    </script>
+</body>
+
+</html>
