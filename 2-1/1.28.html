@@ -19,9 +19,9 @@
                     <div class="todo-item">
                         {{ todo }}
                     </div>
-                    <div class="success-button" @click="removeTodo(index)">
+                    <button type="button" class="success-button" @click="removeTodo(index,todo)">
                         Success!
-                    </div>
+                    </button>
                 </li>
             </ul>
         </div>

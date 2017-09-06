@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+</head>
+
+<body>
+    <div id="app">
+        <date></date>
+        <date></date>
+        <date></date>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        var dateComponent = {
+            template: '<div> {{ now }}</div>',
+            data: function() {
+                return {
+                    now: new Date()
+                }
+            }
+        }
+        new Vue({
+            el: '#app',
+            components: {
+                date: dateComponent
+            }
+        });
+    </script>
+</body>
+
+</html>
