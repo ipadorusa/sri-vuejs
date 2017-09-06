@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+</head>
+
+<body>
+    <div id="app">
+        <select name="" id="" v-model="selected" multiple>
+            <option value="">선택하세요!</option>
+            <option v-for="option in options" :value="option.value">{{ option.text}}}</option>
+        </select>
+        <div>{{ selected }}</div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                selected: '',
+                options: [{
+                    text: 'vue.js',
+                    value: '뷰'
+                }, {
+                    text: 'reactjs',
+                    value: '리액트'
+                }, {
+                    text: 'Angular',
+                    value: '앵귤러'
+                }, {
+                    text: 'jQuery',
+                    value: '제이쿼리'
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>

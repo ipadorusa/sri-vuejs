@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo Application</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>Todo</h1>
+        <div class="todo-list">
+            <input type="text" v-ime-model="inputTodo" placeholder="할 일을 적어주세요!" @keyup.enter="addTodo">
+            <ul>
+                <li v-for="(todo, index) in todos">
+                    <div class="todo-item">
+                        {{ todo }}
+                    </div>
+                    <div class="success-button" @click="removeTodo(index)">
+                        Success!
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="./vue-ime-model.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                todos: [
+                    '빨래하기',
+                    '밥먹기',
+                    '청소하기'
+                ],
+                inputTodo: ''
+            },
+            methods: {
+                addTodo: function() {
+                    this.todos.push(this.inputTodo);
+                    this.inputTodo = '';
+                },
+                removeTodo: function(index) {
+                    this.todos.slice(index, 1);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

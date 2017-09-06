@@ -6,25 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>hello-world</title>
-    <style>
-        [v-cloak] {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
     <div id="app">
-        <div v-cloak>
-            {{ message }}
-        </div>
+        <template v-for="item in items">
+            <h1>댓글</h1>
+            <p>{{ item.message }}</p>
+            <hr>
+        </template>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                message: 'Hello World'
+                items: [{
+                    message: 'aaaaaaaa'
+                }, {
+                    message: 'Vues.js!'
+                }, {
+                    message: '안녕하세요'
+                }]
             }
         })
     </script>

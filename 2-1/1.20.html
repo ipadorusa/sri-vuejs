@@ -6,25 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>hello-world</title>
-    <style>
-        [v-cloak] {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
     <div id="app">
-        <div v-cloak>
-            {{ message }}
-        </div>
+        One: <input type="radio" value="One" v-model="picked">
+        <br/> Two: <input type="radio" value="Two" v-model="picked">
+        <br/> Three: <input type="radio" value="Three" v-model="picked">
+        <br/> Four: <input type="radio" value="Four" v-model="picked"><br/>
+        <div>{{ picked }}</div>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                message: 'Hello World'
+                picked: ''
             }
         })
     </script>
