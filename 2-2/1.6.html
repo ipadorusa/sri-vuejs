@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="comment in comments" :key="commment" is="CommentComponent" :comment="comment"></li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        var commentComponent = {
+            props: ['comment'],
+            template: '<li>{{ comment }}</li>'
+        }
+        new Vue({
+            el: '#app',
+            data: {
+                comments: [
+                    "안녕하세요",
+                    "방가방가",
+                    "하이루"
+                ]
+            },
+            components: {
+                CommentComponent: commentComponent
+            }
+        });
+    </script>
+</body>
+
+</html>

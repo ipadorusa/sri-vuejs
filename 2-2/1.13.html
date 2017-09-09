@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+</head>
+
+<body>
+    <div id="app">
+        <simple-component :name="name" :price="price" :message="message"></simple-component>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        var simpleComponent = {
+            props: {
+                name: String,
+                price: Number,
+                message: [String, Number]
+            },
+            template: '<div>{{ name }}, {{ price}}원, {{ message }}</div>'
+        };
+        new Vue({
+            el: '#app',
+            data: {
+                name: '최신형 스마트폰',
+                price: 897000,
+                message: '최신형 스마트폰 싸게 팝니다!'
+            },
+            components: {
+                'simple-component': simpleComponent
+            }
+        });
+    </script>
+</body>
+
+</html>

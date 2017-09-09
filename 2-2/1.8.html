@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+</head>
+
+<body>
+    <div id="app">
+        <todo-component></todo-component>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <template id="todo-component">
+        <div>
+            <h1>2017년의목표</h1>
+            <ul>
+                <li v-for="todo in todos">
+                    {{ todo }}
+                </li>
+            </ul>
+        </div>
+    </template>
+
+    <script>
+        var todoComponent = {
+            template: '#todo-component',
+            data: function() {
+                return {
+                    todos: [
+                        '열심히 말하기',
+                        '효도하기',
+                        '연애하기'
+                    ]
+                }
+            }
+        };
+        new Vue({
+            el: '#app',
+            components: {
+                'todo-component': todoComponent
+            }
+        });
+    </script>
+</body>
+
+</html>

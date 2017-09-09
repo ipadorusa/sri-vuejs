@@ -1,51 +1,93 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Todo Application</title>
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>ToDo Application</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <div id="app">
-        <h1>Todo</h1>
+        <h1>Todo Application</h1>
         <div class="todo-list">
-            <input type="text" v-ime-model="inputTodo" placeholder="할 일을 적어주세요!" @keyup.enter="addTodo">
-            <ul>
-                <li v-for="(todo, index) in todos">
-                    <div class="todo-item">
-                        {{ todo }}
-                    </div>
-                    <button type="button" class="success-button" @click="removeTodo(index,todo)">
-                        Success!
-                    </button>
-                </li>
-            </ul>
+            <input type="text" v-model="inputTodo" @keydown.enter="addTodo">
+            <label>
+            할 일:
+            <input type="radio" value="active" v-model="type">
+            </label>
+            <label>
+            한 일:
+            <input type="radio" value="success" v-model="type">
+            </label>
+            <template v-if="type === 'active'">
+                <ul>
+                    <li v-for="todo in activeTodos">
+                        <div class="todo-item">
+                            {{ todo.message }}
+                        </div>
+                        <button type="button" class="success-button" @click="success(todo)">
+                            Success
+                        </button>
+                    </li>
+                </ul>
+            </template>
+            <template v-else-if="type === 'success'">
+                <ul>
+                    <li v-for="todo in successTodos">
+                        <div class="todo-item">
+                            {{ todo.message }}
+                        </div>
+                        <button type="button" class="success-button" @click="rollback(todo)">
+                            Rollback
+                        </button>
+                    </li>
+                </ul>
+            </template>
         </div>
     </div>
+
     <script src="https://unpkg.com/vue"></script>
-    <script src="./vue-ime-model.min.js"></script>
+    <script src="vue-ime-model.min.js"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                todos: [
-                    '빨래하기',
-                    '밥먹기',
-                    '청소하기'
-                ],
-                inputTodo: ''
+                inputTodo: '',
+                todos: [{
+                    type: 'active',
+                    message: '설거지 하기'
+                }, {
+                    type: 'active',
+                    message: '빨래 하기'
+                }],
+                type: 'active'
             },
             methods: {
                 addTodo: function() {
-                    this.todos.push(this.inputTodo);
+                    this.todos.push({
+                        type: 'active',
+                        message: this.inputTodo
+                    });
                     this.inputTodo = '';
                 },
-                removeTodo: function(index) {
-                    this.todos.slice(index, 1);
+                success: function(todo) {
+                    todo.type = 'success';
+                },
+                rollback: function(todo) {
+                    todo.type = 'active';
+                }
+
+            },
+            computed: {
+                activeTodos: function() {
+                    return this.todos.filter(function(todo) {
+                        return todo.type === 'active';
+                    });
+                },
+                successTodos: function() {
+                    return this.todos.filter(function(todo) {
+                        return todo.type === 'success';
+                    });
                 }
             }
         })

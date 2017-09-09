@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Vue.js Example</title>
+    <meta charset="utf-8">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <simple-component :price="price"></simple-component>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        // vuejs
+        var simpleComponent = {
+            props: {
+                name: {
+                    type: String,
+                    default: '구형 스마트폰'
+                },
+                price: {
+                    type: Number,
+                    validator: function(value) {
+                        return value >= 500000
+                    }
+                },
+                message: {
+                    type: [String, Number],
+                    required: true,
+                    default: '구형 스마트폰 싸게 팝니다!'
+                },
+                object: {
+                    type: Object,
+                    default: function() {
+                        return {
+                            message: '메세지!'
+                        };
+                    }
+                }
+            },
+            template: '<div>{{name}}, {{price}}원, {{message}}</div>'
+        };
+        new Vue({
+            el: '#app',
+            data: {
+                name: '최신형 스마트폰',
+                price: 476000,
+                message: '최신형 스마트폰 싸게 팝니다!'
+            },
+            components: {
+                'simple-component': simpleComponent
+            }
+        });
+    </script>
+</body>
+
+</html>

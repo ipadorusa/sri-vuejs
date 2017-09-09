@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>ToDo Application</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>Todo Application</h1>
+        <div class="todo-list">
+            <input type="text" v-model="inputTodo" @keydown.enter="addTodo">
+            <label>
+          할 일:
+          <input type="radio" value="active" v-model="type">
+        </label>
+            <label>
+          한 일:
+          <input type="radio" value="success" v-model="type">
+        </label>
+
+            <todo-list :type="type" ref="todoList"></todo-list>
+        </div>
+    </div>
+
+    <template id="todo-list">
+      <ul v-if="type === 'active'">
+        <li v-for="todo in activeTodos"
+          is="todo-item" :type="type" :todo="todo">
+        </li>
+      </ul>
+
+      <ul v-else-if="type === 'success'">
+        <li v-for="todo in successTodos"
+          is="todo-item" :type="type" :todo="todo">
+        </li>
+      </ul>
+    </template>
+
+    <template id="todo-item">
+      <li>
+        <div class="todo-item">
+          {{ todo.message }}
+        </div>
+        <div v-if="type === 'active'" class="success-button" @click="success(todo)">
+          Success
+        </div>
+        <div v-else-if="type === 'success'" class="success-button" @click="rollback(todo)">
+          Rollback
+        </div>
+      </li>
+    </template>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="vue-ime-model.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
