@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity .5s;
+        }
+
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <transition name="fade" mode="out-in">
+            <keep-alive>
+                <component :is="currentView"></component>
+            </keep-alive>
+        </transition>
+        <button @click="currentView = 'component-one'">
+            component one
+        </button>
+        <button @click="currentView = 'component-two'">
+            component two
+        </button>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.component('component-one', {
+            template: '<div><input></div>'
+        });
+        Vue.component('component-two', {
+            template: '<div>two</div>'
+        });
+        new Vue({
+            el: '#app',
+            data: {
+                currentView: 'component-one'
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slot</title>
+</head>
+
+<body>
+    <div id="app">
+        <form-helper title="로그인하기" button-name="로그인" v-on:submit="login">
+            <label>로그인 : <input type="text"></label>
+            <label>비밀번호 : <input type="password"></label>
+        </form-helper>
+    </div>
+    <template id="form-helper-template">
+        <form v-on:submit.prevent="$emit('submit')">
+            <h1>{{ title }}</h1>
+            <slot></slot>
+            <button>{{ buttonName }}</button>
+        </form>
+    </template>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.component('form-helper', {
+            template: '#form-helper-template',
+            props: ['title', 'buttonName']
+        });
+        new Vue({
+            el: '#app',
+            methods: {
+                login: function () {
+                    alert('로그인됨!!');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+</head>
+
+<body>
+    <div id="app">
+        <sample-component>
+            <template scope="props">
+                <li>{{ props.fruitName}}: {{ props.price}}</li>
+            </template>
+        </sample-component>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <template id="sample-componet-template">
+        <div>
+            <ul>
+                <slot v-for="item in fruits" :fruit-name="item.name" :price="item.price"></slot>
+            </ul>
+        </div>
+    </template>
+    <script>
+        Vue.component('sample-component', {
+            template: '#sample-componet-template',
+            data: function () {
+                return {
+                    fruits: [
+                        {
+                            name: 'apple',
+                            price: 1500,
+                        },
+                        {
+                            name: 'Banana',
+                            price: 900
+                        }
+                    ]
+                };
+            }
+        });
+        new Vue({
+            el: '#app'
+        });
+    </script>
+
+</body>
+
+</html>

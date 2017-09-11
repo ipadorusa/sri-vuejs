@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+</head>
+
+<body>
+    <div id="app">
+        <phone-validate v-model="email"></phone-validate>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <template id="phone-validate-template">
+        <div>
+            <label>
+                <input type="text" :value="value" v-on:input="validate">
+                <br />
+                상태 : {{ statusMessage }}
+            </label>
+        </div>
+    </template>
+    <script>
+        Vue.component('phone-validate', {
+            props: ['value'],
+            template: '#phone-validate-template',
+            data: function () {
+                return { status: false };
+            },
+            computed: {
+                statusMessage: function () {
+                    return this.status ? '가능' : '불가능';
+                }
+            },
+            methods: {
+                validate: function (event) {
+                    var phoneNumber = event.target.value;
+                    if (!/^\d{3}-\d{3,4}-\d{4}$/i.test(phoneNumber)) {
+                        this.status = false;
+                    } else {
+                        this.status = true;
+                    }
+                    this.$emit('input', phoneNumber);
+                }
+            }
+        });
+        new Vue({
+            el: '#app',
+            data: {
+                email: ''
+            }
+        })
+    </script>
+</body>
+
+</html>

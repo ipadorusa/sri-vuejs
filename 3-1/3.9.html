@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slot</title>
+</head>
+
+<body>
+    <div id="app">
+        <app-layout>
+            <header slot="header">헤더부분</header>
+            <div slot="contents">
+                냥냥
+            </div>
+            <footer slot="footer">푸터부분</footer>
+        </app-layout>
+    </div>
+    <template id="app-layout-template">
+        <div>
+            <slot name="header"></slot>
+            <slot name="contents">ㅁㅁㅁ</slot>
+            <slot name="footer">풋터부분</slot>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.component('app-layout', {
+            template: '#app-layout-template'
+        });
+        new Vue({
+            el: '#app',
+            methods: {
+                login: function () {
+                    alert('로그인됨!!');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

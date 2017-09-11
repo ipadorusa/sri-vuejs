@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+</head>
+
+<body>
+    <div id="app">
+        <counter :initial-counter="counter"></counter>
+        <checkbox></checkbox>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.component('counter', {
+            props: ['initialCounter'],
+            template: '<button @click="addCounter">{{ counter }}</button>',
+            data: function () {
+                return { counter: this.initialCounter };
+            },
+            methods: {
+                addCounter: function () {
+                    this.counter += 1;
+                    if (this.counter >= 5) {
+                        bus.$emit('checked', true);
+                    }
+                }
+            }
+        });
+        Vue.component('checkbox', {
+            template: '<input type="checkbox" :checked="checked" \ value="Hello, Vue!" disabled></input>',
+            data: function () {
+                return { checked: false };
+            },
+            mounted: function () {
+                bus.$on('checked', function (value) {
+                    this.checked = value;
+                }.bind(this))
+            }
+        });
+        var bus = new Vue();
+        new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            }
+        })
+    </script>
+</body>
+
+</html>

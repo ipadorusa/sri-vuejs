@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello-world</title>
+</head>
+
+<body>
+    <div id="app">
+        <post>
+            안녕하세요 이곳에는 내용이 들어갑니다.
+        </post>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <template id="post-template">
+        <div>
+            <h1>제목 입니다.</h1>
+            <p>
+                <slot></slot>
+            </p>
+        </div>
+    </template>
+    <script>
+        Vue.component('post', {
+            template: '#post-template'
+        });
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>
